@@ -86,7 +86,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #f7f7f7;
-  border: dotted red;
+  border:transparent;
 }
 
 .logo {
@@ -94,6 +94,16 @@
   margin-left: 50px; /* This moves the logo, but the header border spans full width */
   flex-direction: row;
 }
+/* In banner heading: orange for “Empowering” */
+.banner-content h1 .highlight-orange {
+  color: var(--theme-orange); /* uses your orange variable */
+}
+
+/* Blue for “towards vision” */
+.banner-content h1 .highlight-blue {
+  color: #007BFF; /* or another blue of your choice */
+}
+
 
 .site-name {
   display: flex;
@@ -217,20 +227,20 @@
 }
 
 .btn-banner {
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;       /* increased padding: top/bottom 1rem, left/right 2rem */
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 1.25rem;       /* larger text */
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-
 .btn-banner:hover {
   background-color: #333;
 }
+
 
 .banner img {
   flex: 1;
@@ -259,11 +269,12 @@
 
 .footer-container {
   /* Your existing styles */
-  background-color: #01ACFD;
+  background-color: #007BFF;
   padding: 185px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   /* Invert all colors in the footer */
   filter: invert(100%);
@@ -286,32 +297,89 @@
 
 /* === Our Stories Section === */
 .our-stories {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;            /* optional: centers inline text */
   padding: 3rem 2rem;
-  /* A background image with a gradient overlay for visual depth */
-  background: linear-gradient(
-      to top,
-      rgba(254, 161, 1, 0.26),
-      rgba(255, 255, 255, 0.26)
-    ),
-    url('/assets/bg.png') no-repeat center center;
+  background: url('/assets/bg.png') no-repeat center center;
   background-size: cover;
+  position: relative;
 }
+
 
 /* Section Heading */
 .our-stories h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #fff; /* Choose a contrasting color for readability */
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
 }
 
 /* Container for Story Cards */
+/* Our Stories: first card large left, others on right in two rows */
 .story-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin: 0 auto;
+  /* Two columns: left is larger (2fr), right is smaller column (1fr) */
+  grid-template-columns: 2fr 1fr;
+  /* Two rows: right column will have two rows; left spans both */
+  grid-template-rows: repeat(2, auto);
+  gap: 1.5rem; /* adjust spacing between cards */
   max-width: 1200px;
+  margin: 0 auto;
+}
+/* Make the first story-card span two rows in the left column */
+.story-cards .story-card:first-child {
+  grid-column: 1 / 2; /* left column */
+  grid-row: 1 / span 2; /* span both rows vertically */
+}
+.story-cards {
+  display: grid;
+  /* three columns: left large (2fr), then two equal small columns (1fr each) */
+  grid-template-columns: 2fr 1fr 1fr;
+  /* two rows */
+  grid-template-rows: repeat(2, auto);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* First card spans left entire area: column 1 / 2, row 1 / span 2 */
+.story-cards .story-card:first-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / span 2;
+}
+
+/* Then place the 4 small cards explicitly */
+.story-cards .story-card:nth-child(2) {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+.story-cards .story-card:nth-child(3) {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+.story-cards .story-card:nth-child(4) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+.story-cards .story-card:nth-child(5) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.story-card .date {
+  position: relative; /* or omit position entirely, default is static */
+  display: inline-block;
+  background-color: var(--theme-orange);
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  margin: 0 auto 1rem; /* centers horizontally if parent text-align:center; and adds space below */
+  /* No absolute positioning, so it sits in normal flow between img and content */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  /* Ensure it is always visible */
 }
 
 /* Individual Story Card */
@@ -359,28 +427,153 @@
   line-height: 1.4;
 }
 
+/* ----- Standard Curriculum ----- */
 .standard-curriculum {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-
-  border: dotted;
+  position: relative;
+  padding: 3rem 1rem; 
+  /* Keep the background image: adjust path if needed */
   background: url('/assets/bg.png') no-repeat center center;
   background-size: cover;
-  height: 900px; /* Fixed height */
-  box-sizing: border-box; /* Includes padding in the height calculation */
+  background-color: transparent; /* fallback color if image fails */
 }
 
-/* === Standard Curriculum Section === */
-.standard-curriculum {
-  text-align: center;
-  padding: 3rem 2rem;  /* Increase padding as desired */
-  background-color: #ffffff; /* or a background image */
-  /* Remove or comment out any fixed height if you want the cards to auto-expand */
-  /* height: auto; */
-  /* If you want a dotted border or background image, keep your existing rules. */
+/* Light overlay so text/cards remain legible but image shows through */
+.standard-curriculum::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
 }
+
+/* Ensure content displays above the overlay */
+.standard-curriculum .container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center-align heading/cards */
+}
+
+/* Centered title */
+.standard-curriculum__title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Cards container centered */
+.standard-curriculum .curriculum-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Individual card styling remains (gradient backgrounds via .card-1/.card-2/.card-3) */
+.standard-curriculum .curriculum-card {
+  position: relative;
+  flex: 1 1 250px;
+  max-width: 300px;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: transparent; /* fallback */
+  /* transition: transform 0.2s, box-shadow 0.2s; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Date badge styling under image */
+.standard-curriculum .curriculum-card .date {
+  display: inline-block;
+  background-color: rgba(255,255,255,0.9);
+  color: #555;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Card image */
+.standard-curriculum .curriculum-card img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Card title */
+.standard-curriculum .curriculum-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Read More link */
+.standard-curriculum .curriculum-card a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  margin-top: auto; /* push link to bottom if content varies */
+  transition: color 0.2s;
+}
+.standard-curriculum .curriculum-card a:hover {
+  color: var(--theme-orange);
+}
+
+/* Gradient backgrounds for each card */
+.card-1 {
+  background: linear-gradient(135deg, #FFF0D1, #FFD567);
+}
+.card-2 {
+  background: linear-gradient(135deg, #E0F7FF, #B0ECFF);
+}
+.card-3 {
+  background: linear-gradient(135deg, #FFE0F0, #FFB8E8);
+}
+
+/* Optional hover effect */
+.standard-curriculum .curriculum-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Arrow buttons container centered; hidden on mobile via media query */
+.standard-curriculum .arrow-button-group {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Arrow buttons styling */
+.standard-curriculum .arrow-button-group button {
+  background-color: var(--theme-orange);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease;
+}
+.standard-curriculum .arrow-button-group button:hover {
+  background-color: #e68a00;
+}
+
 
 .standard-curriculum h2 {
   font-size: 2rem;
@@ -471,69 +664,150 @@
   cursor: pointer;
   font-size: 1rem;
 }
+/* Container to center the button */
+.view-all-container {
+  text-align: center;
+  margin-top: 2rem; /* space above the button */
+}
+
+/* The View All button */
+.btn-view-all {
+  display: inline-block;
+  background-color: #000; /* black background */
+  color: #fff;            /* white text */
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;    /* rounded edges */
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.btn-view-all:hover {
+  background-color: #333; /* slightly lighter black on hover */
+}
+
 
 
 
 
 /* Mobile css */
 
-@media (max-width: 768px) {
-  /* Navbar: show only logo + hamburger */
-  .nav, .contact-btn {
-    display: none;
+/* ==============================
+   Mobile Responsiveness (max-width: 768px)
+   ============================== */
+   @media (max-width: 768px) {
+    /* 1. Navbar: show only logo + hamburger, hide nav links and Contact button */
+    .nav,
+    .contact-btn {
+      display: none;
+    }
+    .hamburger {
+      display: flex; /* ensure hamburger is visible */
+      flex-direction: column;
+      justify-content: space-around;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+    }
+    /* Optionally, you’ll need JS to toggle showing nav menu when hamburger clicked */
+  
+    /* 2. Banner: stack image above content, center-align text */
+    .banner {
+      flex-direction: column-reverse; /* image on top, text below */
+      text-align: center;
+      padding: 1.5rem 1rem; /* maybe reduce padding on mobile */
+    }
+    .banner img {
+      max-width: 90%;
+      margin: 0 auto 1rem;
+    }
+    .banner-content {
+      width: 100%;
+      padding: 0 1rem;
+    }
+    .banner-content h1 {
+      font-size: 2rem; /* adjust font-size for smaller screens */
+      line-height: 1.2;
+    }
+    .banner-content p {
+      font-size: 1rem;
+    }
+    .btn-banner {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      /* no fixed width; let it size by padding */
+    }
+  
+    /* 3. Standard Curriculum: single-column cards, hide arrows */
+    .standard-curriculum .curriculum-cards {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 0; /* if any padding around, adjust as needed */
+    }
+    .standard-curriculum .curriculum-card {
+      width: 90%;
+      max-width: 400px; /* optional */
+      margin-bottom: 1.5rem;
+    }
+    .standard-curriculum .arrow-button-group {
+      display: none; /* hide arrows on mobile */
+    }
+    /* Ensure section padding remains reasonable */
+    .standard-curriculum {
+      padding: 2rem 1rem;
+    }
+  
+    /* 4. Our Stories: two-column grid; hide first card if required */
+    .story-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      width: 100%;
+      padding: 0 1rem;
+    }
+    /* Hide first card on small devices if assignment requires hiding 1st: */
+    .story-cards .story-card:first-child {
+      display: none;
+    }
+    /* If you want only hide on very small (e.g. <480px), wrap in narrower media query */
+    /* Adjust padding/margins */
+    .our-stories {
+      padding: 2rem 1rem;
+    }
+    .our-stories h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    /* Center “View All” button is already centered */
+  
+    /* 5. Footer: stack columns vertically */
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .footer-col {
+      width: 100%;
+      max-width: 400px;
+      margin: 0.75rem 0;
+    }
   }
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 25px;
-    height: 20px;
-    cursor: pointer;
+  
+  /* ==============================
+     Extra for very small screens (<480px)
+     ============================== */
+  @media (max-width: 480px) {
+    /* Banner: further shrink text if needed */
+    .banner-content h1 {
+      font-size: 1.75rem;
+    }
+    /* Our Stories: single-column stacking */
+    .story-cards {
+      grid-template-columns: 1fr;
+    }
+    /* Optionally hide first card here or above */
+    /* Standard Curriculum cards are already single-column */
   }
-
-  /* Banner: stack image on top, text below */
-  .banner {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-  .banner-content {
-    max-width: 100%;
-    margin-top: 1rem;
-  }
-  .banner img {
-    max-width: 80%;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Standard Curriculum: single-column cards */
-  .curriculum-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-  .curriculum-card {
-    width: 90%;
-    margin-bottom: 1.5rem;
-  }
-  .arrow-button-group {
-    display: none; /* hide arrow buttons on mobile if desired */
-  }
-
-  /* Our Stories: two-column or single-column, depending on preference */
-  .story-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  /* If you prefer single-column on very narrow screens, you can do repeat(1, 1fr) */
-  /* or use another breakpoint for that. */
-
-  /* Footer: stack columns */
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .footer-col {
-    margin-bottom: 1.5rem;
-  }
-}
+  
