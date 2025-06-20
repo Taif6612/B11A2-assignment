@@ -1,6 +1,6 @@
 /* font */
 
-/* Quicksand Normal Variants */
+
 .quicksand-light {
   font-family: "Quicksand", sans-serif;
   font-weight: 300;
@@ -31,7 +31,7 @@
   font-style: normal;
 }
 
-/* Quicksand Italic Variants */
+
 .quicksand-light-italic {
   font-family: "Quicksand", sans-serif;
   font-weight: 300;
@@ -91,17 +91,17 @@
 
 .logo {
   display: flex;
-  margin-left: 50px; /* This moves the logo, but the header border spans full width */
+  margin-left: 50px; 
   flex-direction: row;
 }
-/* In banner heading: orange for “Empowering” */
+
 .banner-content h1 .highlight-orange {
-  color: var(--theme-orange); /* uses your orange variable */
+  color: var(--theme-orange); 
 }
 
-/* Blue for “towards vision” */
+
 .banner-content h1 .highlight-blue {
-  color: #007BFF; /* or another blue of your choice */
+  color: #007BFF; 
 }
 
 
@@ -147,10 +147,9 @@
 
 .nav {
   display: flex;
-  justify-content: space-evenly; /* or space-around / space-between */
+  justify-content: space-evenly; 
   align-items: center;
-  width: 500px; /* or any suitable fixed width */
-  /* OR use gap instead of a fixed width: */
+  width: 500px; 
   /* gap: 2rem; */
   background-color: #f7f7f7;
   /* border: dotted red; */
@@ -193,12 +192,12 @@
   /* border: dotted; */
 }
 
-/* === Hero Section / Banner === */
+
 .banner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #f7f7f7;  /* Light background for contrast */
+  background-color: #f7f7f7;  
   padding: 2rem;
   gap: 2rem;
 }
@@ -216,7 +215,7 @@
 }
 
 .banner-content h1 span {
-  color: var(--theme-orange);  /* Highlighted word */
+  color: var(--theme-orange);  
 }
 
 .banner-content p {
@@ -230,9 +229,9 @@
   background-color: #000;
   color: #fff;
   border: none;
-  padding: 1rem 2rem;       /* increased padding: top/bottom 1rem, left/right 2rem */
+  padding: 1rem 2rem;       
   border-radius: 10px;
-  font-size: 1.25rem;       /* larger text */
+  font-size: 1.25rem;      
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -268,7 +267,7 @@
 }
 
 .footer-container {
-  /* Your existing styles */
+  
   background-color: #007BFF;
   padding: 185px;
   display: flex;
@@ -276,11 +275,11 @@
   align-items: center;
   flex-wrap: wrap;
 
-  /* Invert all colors in the footer */
+  
   filter: invert(100%);
 }
 
-/* Invert images again so they appear normal */
+
 .footer-container img {
   filter: invert(100%);
 }
@@ -295,12 +294,12 @@
   /* border: dotted; */
 }
 
-/* === Our Stories Section === */
+
 .our-stories {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;            /* optional: centers inline text */
+  text-align: center;           
   padding: 3rem 2rem;
   background: url('/assets/bg.png') no-repeat center center;
   background-size: cover;
@@ -308,7 +307,7 @@
 }
 
 
-/* Section Heading */
+
 .our-stories h2 {
   text-align: center;
   width: 100%;
@@ -316,41 +315,40 @@
   margin: 0 auto 2rem;
 }
 
-/* Container for Story Cards */
-/* Our Stories: first card large left, others on right in two rows */
+
 .story-cards {
   display: grid;
-  /* Two columns: left is larger (2fr), right is smaller column (1fr) */
+
   grid-template-columns: 2fr 1fr;
-  /* Two rows: right column will have two rows; left spans both */
+ 
   grid-template-rows: repeat(2, auto);
-  gap: 1.5rem; /* adjust spacing between cards */
+  gap: 1.5rem; 
   max-width: 1200px;
   margin: 0 auto;
 }
-/* Make the first story-card span two rows in the left column */
+
 .story-cards .story-card:first-child {
-  grid-column: 1 / 2; /* left column */
-  grid-row: 1 / span 2; /* span both rows vertically */
+  grid-column: 1 / 2; 
+  grid-row: 1 / span 2; 
 }
 .story-cards {
   display: grid;
-  /* three columns: left large (2fr), then two equal small columns (1fr each) */
+
   grid-template-columns: 2fr 1fr 1fr;
-  /* two rows */
+
   grid-template-rows: repeat(2, auto);
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* First card spans left entire area: column 1 / 2, row 1 / span 2 */
+
 .story-cards .story-card:first-child {
   grid-column: 1 / 2;
   grid-row: 1 / span 2;
 }
 
-/* Then place the 4 small cards explicitly */
+
 .story-cards .story-card:nth-child(2) {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -369,22 +367,22 @@
 }
 
 .story-card .date {
-  position: relative; /* or omit position entirely, default is static */
+  position: relative; 
   display: inline-block;
   background-color: var(--theme-orange);
   color: #fff;
   font-size: 0.85rem;
   padding: 0.5rem 1rem;
   border-radius: 12px;
-  margin: 0 auto 1rem; /* centers horizontally if parent text-align:center; and adds space below */
-  /* No absolute positioning, so it sits in normal flow between img and content */
+  margin: 0 auto 1rem; 
+ 
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  /* Ensure it is always visible */
+  
 }
 
-/* Individual Story Card */
+
 .story-card {
-  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for contrast */
+  background-color: rgba(255, 255, 255, 0.9); 
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -397,20 +395,19 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Story Card Image */
+
 .story-card img {
   width: 100%;
   display: block;
 }
 
-/* Date Styling */
 .story-card .date {
   font-size: 0.85rem;
   color: #777;
   margin: 0.5rem 1rem;
 }
 
-/* Story Content */
+
 .story-content {
   padding: 0 1rem 1rem;
 }
@@ -427,17 +424,17 @@
   line-height: 1.4;
 }
 
-/* ----- Standard Curriculum ----- */
+
 .standard-curriculum {
   position: relative;
   padding: 3rem 1rem; 
-  /* Keep the background image: adjust path if needed */
+
   background: url('/assets/bg.png') no-repeat center center;
   background-size: cover;
-  background-color: transparent; /* fallback color if image fails */
+  background-color: transparent; 
 }
 
-/* Light overlay so text/cards remain legible but image shows through */
+
 .standard-curriculum::before {
   content: "";
   position: absolute;
@@ -446,7 +443,7 @@
   pointer-events: none;
 }
 
-/* Ensure content displays above the overlay */
+
 .standard-curriculum .container {
   position: relative;
   z-index: 1;
@@ -454,10 +451,10 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* center-align heading/cards */
+  align-items: center; 
 }
 
-/* Centered title */
+
 .standard-curriculum__title {
   font-size: 2rem;
   color: #333;
@@ -465,7 +462,7 @@
   text-align: center;
 }
 
-/* Cards container centered */
+
 .standard-curriculum .curriculum-cards {
   display: flex;
   flex-wrap: wrap;
@@ -475,7 +472,7 @@
   margin: 0 auto;
 }
 
-/* Individual card styling remains (gradient backgrounds via .card-1/.card-2/.card-3) */
+
 .standard-curriculum .curriculum-card {
   position: relative;
   flex: 1 1 250px;
@@ -484,14 +481,13 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  background-color: transparent; /* fallback */
-  /* transition: transform 0.2s, box-shadow 0.2s; */
+  background-color: transparent; 
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Date badge styling under image */
+
 .standard-curriculum .curriculum-card .date {
   display: inline-block;
   background-color: rgba(255,255,255,0.9);
@@ -503,14 +499,14 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Card image */
+
 .standard-curriculum .curriculum-card img {
   width: 80px;
   height: auto;
   margin-bottom: 1rem;
 }
 
-/* Card title */
+
 .standard-curriculum .curriculum-card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
@@ -518,19 +514,19 @@
   color: #333;
 }
 
-/* Read More link */
+
 .standard-curriculum .curriculum-card a {
   text-decoration: none;
   font-weight: 600;
   color: #333;
-  margin-top: auto; /* push link to bottom if content varies */
+  margin-top: auto; 
   transition: color 0.2s;
 }
 .standard-curriculum .curriculum-card a:hover {
   color: var(--theme-orange);
 }
 
-/* Gradient backgrounds for each card */
+
 .card-1 {
   background: linear-gradient(135deg, #FFF0D1, #FFD567);
 }
@@ -541,13 +537,13 @@
   background: linear-gradient(135deg, #FFE0F0, #FFB8E8);
 }
 
-/* Optional hover effect */
+
 .standard-curriculum .curriculum-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Arrow buttons container centered; hidden on mobile via media query */
+
 .standard-curriculum .arrow-button-group {
   margin-top: 2rem;
   display: flex;
@@ -555,7 +551,7 @@
   justify-content: center;
 }
 
-/* Arrow buttons styling */
+
 .standard-curriculum .arrow-button-group button {
   background-color: var(--theme-orange);
   color: #fff;
@@ -581,18 +577,18 @@
   color: #333;
 }
 
-/* Cards container */
+
 .curriculum-cards {
   display: flex;
   justify-content: center;
-  gap: 2rem; /* space between cards */
-  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  gap: 2rem; 
+  flex-wrap: wrap; 
   margin: 0 auto;
 }
 
-/* Each card */
+
 .curriculum-card {
-  width: 250px; /* fixed width or use flex-basis for responsiveness */
+  width: 250px; 
   padding: 2rem 1rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -601,41 +597,40 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Optional hover effect */
 .curriculum-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Card images */
+
 .curriculum-card img {
   width: 80px;
   height: auto;
   margin-bottom: 1rem;
 }
 
-/* Date text */
+
 .curriculum-card .date {
   font-size: 0.9rem;
   color: #777;
   margin-bottom: 0.5rem;
 }
 
-/* Card title */
+
 .curriculum-card h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
-/* "Read More" link */
+
 .curriculum-card a {
   text-decoration: none;
   font-weight: 600;
   color: var(--theme-orange);
 }
 
-/* === Unique Gradient Backgrounds for Each Card === */
+
 .card-1 {
   background: linear-gradient(135deg, #FFF0D1, #FFD567);
 }
@@ -648,7 +643,7 @@
   background: linear-gradient(135deg, #FFE0F0, #FFB8E8);
 }
 
-/* === Arrow Buttons (centered, optionally hidden in media queries) === */
+/* arrow buttons */
 .arrow-button-group {
   margin-top: 2rem;
   display: flex;
@@ -664,58 +659,51 @@
   cursor: pointer;
   font-size: 1rem;
 }
-/* Container to center the button */
 .view-all-container {
   text-align: center;
-  margin-top: 2rem; /* space above the button */
+  margin-top: 2rem; 
 }
 
-/* The View All button */
+/* view all button */
 .btn-view-all {
   display: inline-block;
-  background-color: #000; /* black background */
-  color: #fff;            /* white text */
+  background-color: #000; 
+  color: #fff;            
   text-decoration: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 20px;    /* rounded edges */
+  border-radius: 20px;    
   font-size: 1rem;
   font-weight: 500;
   transition: background-color 0.2s ease;
 }
 .btn-view-all:hover {
-  background-color: #333; /* slightly lighter black on hover */
+  background-color: #333; 
+
 }
 
 
 
-
-
-/* Mobile css */
-
-/* ==============================
-   Mobile Responsiveness (max-width: 768px)
-   ============================== */
+/* mobile responsiveness code */
    @media (max-width: 768px) {
-    /* 1. Navbar: show only logo + hamburger, hide nav links and Contact button */
+
     .nav,
     .contact-btn {
       display: none;
     }
     .hamburger {
-      display: flex; /* ensure hamburger is visible */
+      display: flex; 
       flex-direction: column;
       justify-content: space-around;
       width: 25px;
       height: 20px;
       cursor: pointer;
     }
-    /* Optionally, you’ll need JS to toggle showing nav menu when hamburger clicked */
+
   
-    /* 2. Banner: stack image above content, center-align text */
     .banner {
-      flex-direction: column-reverse; /* image on top, text below */
+      flex-direction: column-reverse; 
       text-align: center;
-      padding: 1.5rem 1rem; /* maybe reduce padding on mobile */
+      padding: 1.5rem 1rem; 
     }
     .banner img {
       max-width: 90%;
@@ -726,7 +714,7 @@
       padding: 0 1rem;
     }
     .banner-content h1 {
-      font-size: 2rem; /* adjust font-size for smaller screens */
+      font-size: 2rem; 
       line-height: 1.2;
     }
     .banner-content p {
@@ -735,30 +723,29 @@
     .btn-banner {
       padding: 0.75rem 1.5rem;
       font-size: 1.1rem;
-      /* no fixed width; let it size by padding */
     }
   
-    /* 3. Standard Curriculum: single-column cards, hide arrows */
+
     .standard-curriculum .curriculum-cards {
       flex-direction: column;
       align-items: center;
       width: 100%;
-      padding: 0; /* if any padding around, adjust as needed */
+      padding: 0; 
     }
     .standard-curriculum .curriculum-card {
       width: 90%;
-      max-width: 400px; /* optional */
+      max-width: 400px; 
       margin-bottom: 1.5rem;
     }
     .standard-curriculum .arrow-button-group {
-      display: none; /* hide arrows on mobile */
+      display: none; 
     }
-    /* Ensure section padding remains reasonable */
+
     .standard-curriculum {
       padding: 2rem 1rem;
     }
   
-    /* 4. Our Stories: two-column grid; hide first card if required */
+
     .story-cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -766,12 +753,10 @@
       width: 100%;
       padding: 0 1rem;
     }
-    /* Hide first card on small devices if assignment requires hiding 1st: */
+
     .story-cards .story-card:first-child {
       display: none;
     }
-    /* If you want only hide on very small (e.g. <480px), wrap in narrower media query */
-    /* Adjust padding/margins */
     .our-stories {
       padding: 2rem 1rem;
     }
@@ -779,9 +764,7 @@
       font-size: 1.75rem;
       margin-bottom: 1.5rem;
     }
-    /* Center “View All” button is already centered */
-  
-    /* 5. Footer: stack columns vertically */
+
     .footer-container {
       flex-direction: column;
       align-items: center;
@@ -795,19 +778,14 @@
     }
   }
   
-  /* ==============================
-     Extra for very small screens (<480px)
-     ============================== */
+
   @media (max-width: 480px) {
-    /* Banner: further shrink text if needed */
     .banner-content h1 {
       font-size: 1.75rem;
     }
-    /* Our Stories: single-column stacking */
     .story-cards {
       grid-template-columns: 1fr;
     }
-    /* Optionally hide first card here or above */
-    /* Standard Curriculum cards are already single-column */
+
   }
   
